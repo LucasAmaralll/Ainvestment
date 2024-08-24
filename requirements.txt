@@ -1,0 +1,7 @@
+yfinance
+crewai
+langchain
+langchain-community
+duckduckgo-search
+langchain-openai
+pysqlite3-binary

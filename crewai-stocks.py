@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import yfinance as yf
 
@@ -13,9 +13,19 @@ from langchain_community.tools.ddg_search.tool import DuckDuckGoSearchResults
 
 import streamlit as st
 
+# Função para obter a data de um ano atrás
+def get_date_one_year_ago():
+    return (datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d')
+
+# Função para obter a data de hoje
+def get_today_date():
+    return datetime.now().strftime('%Y-%m-%d')
+
 # Criando Yahoo Finance Tool
 def fetch_stock_price(ticket):
-    stock = yf.download(ticket, start="2023-08-08", end="2024-08-08")
+    start_date = get_date_one_year_ago()
+    end_date = get_today_date()
+    stock = yf.download(ticket, start=start_date, end=end_date)
     return stock
 
 yahoo_finance_tool = Tool(

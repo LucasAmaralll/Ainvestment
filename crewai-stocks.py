@@ -1,16 +1,11 @@
 import json
 import os
 from datetime import datetime, timedelta
-
 import yfinance as yf
-
 from crewai import Agent, Task, Crew, Process
-
 from langchain.tools import Tool
 from langchain_openai import ChatOpenAI
-
 from langchain_community.tools.ddg_search.tool import DuckDuckGoSearchResults
-
 import streamlit as st
 
 # Função para obter a data de um ano atrás
@@ -111,18 +106,56 @@ crew = Crew(
     max_iter=15
 )
 
-with st.sidebar:
-    st.header('Enter the Stock to Research')
-    
-    with st.form(key='research_form'):
-        topic = st.text_input("Select the ticket")
-        submit_button = st.form_submit_button(label = "Run Research")
+st.title("Stock Analysis Research")
+
+st.markdown(
+    """
+    <style>
+        .stTextInput input {
+            background-color: #1E1E1E;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .stButton button {
+        background-color: #0A84FF;
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+        border: 2px solid transparent; /* Adiciona uma borda inicial transparente */
+        }
+
+        .stButton button:hover {
+            border-color: #000000;
+            color: white;
+        }
+        .reportview-container .main .block-container {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        .stForm {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #1E1E1E;
+            padding: 10px;
+            border-top: 1px solid #444;
+        }
+    </style>
+    """, 
+    unsafe_allow_html=True
+)
+
+with st.form(key='research_form', clear_on_submit=True):
+    topic = st.text_input("Enter stock ticket...", placeholder="Enter the stock ticket")
+    submit_button = st.form_submit_button(label="Analyze")
 
 if submit_button:
     if not topic:
-        st.error("Please fill the ticket field")
+        st.error("Please fill the stock ticket field")
     else:
-        results= crew.kickoff(inputs={'ticket': topic})
+        results = crew.kickoff(inputs={'ticket': topic})
 
         st.subheader("Results of your research:")
         st.write(results['final_output'])

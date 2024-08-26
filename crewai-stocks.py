@@ -156,8 +156,10 @@ if submit_button:
         st.error("Please fill the stock ticket field")
     else:
         results = crew.kickoff(inputs={'ticket': topic})
-
+        
+        # Verifique o conteúdo do resultado
         st.subheader("Results of your research:")
-        st.write(results['final_output'])
+        st.write(results)
+
         
 #streamlit run crewai-stocks.py

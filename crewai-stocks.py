@@ -159,7 +159,5 @@ if submit_button:
         
         # Verifique o conteúdo do resultado
         st.subheader("Results of your research:")
-        st.write(results)
-
         
 #streamlit run crewai-stocks.py

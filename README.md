@@ -1,7 +1,3 @@
-Vou ajustar o README e o post no LinkedIn para incluir o nome do projeto **Ainvestiment**.
-
-### README do Projeto
-
 ## Ainvestiment: Análise de Ações com Streamlit e LangChain
 
 **Ainvestiment** é uma aplicação web desenvolvida em Python que realiza a análise de ações utilizando o Yahoo Finance e fornece resumos de notícias relacionadas às ações. A interface é implementada com Streamlit, oferecendo uma experiência de usuário interativa e intuitiva.

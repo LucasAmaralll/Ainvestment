@@ -1,0 +1,46 @@
+# Ainvestment - Professional Stock Research Terminal
+#
+# Core dependencies (minimum required)
+
+# Data & Analysis
+yfinance>=0.2.36
+pandas>=2.0.0
+numpy>=1.24.0
+requests>=2.31.0
+
+# News Sources
+duckduckgo-search>=5.0.0
+# newsapi-python>=0.2.7  # Optional: Uncomment if you have NewsAPI key
+
+# Utilities
+tenacity>=8.2.3  # Retry logic
+python-dateutil>=2.8.2
+
+# Configuration
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+python-dotenv>=1.0.0
+
+# Logging
+structlog>=24.1.0
+
+# LLM (Optional - choose one or none)
+# ollama>=0.1.0  # For local LLM (install Ollama separately)
+# openai>=1.10.0  # For OpenAI API (requires API key)
+
+# Web Framework
+streamlit>=1.30.0
+plotly>=5.18.0
+
+# Export
+markdown>=3.5.0
+# weasyprint>=60.0  # Optional: for PDF export (requires system deps)
+
+# Testing (development)
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0
+
+# Code Quality (development)
+ruff>=0.1.0
+mypy>=1.7.0
